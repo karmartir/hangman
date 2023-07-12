@@ -1,29 +1,83 @@
 import React from 'react';
 
 const head = (
-    <div style={{width: "150px"}}>
+    <div style={{
+        width: "50px",
+        height: "50px",
+        borderRadius: "100%",
+        border: "10px solid black",
+        position: "absolute",
+        top: "50px",
+        right: "-30px"
+    }}
+    />
+)
 
-    </div>)
 const body = (
-    <div style={{width: "150px"}}>
+    <div style={{
+        width: "10px",
+        height: "100px",
+        background: "black",
+        position: "absolute",
+        top: "120px",
+        right: 0
+    }}
+    />
+)
 
-    </div>)
 const rightArm = (
-    <div style={{width: "150px"}}>
+    <div style={{
+        width: "100px",
+        height: "10px",
+        background: "black",
+        position: "absolute",
+        top: "150px",
+        right: "-100px",
+        rotate: "-25deg",
+        transformOrigin: "left bottom"
+    }}
+    />)
 
-    </div>)
 const leftArm = (
-    <div style={{width: "150px"}}>
+    <div style={{
+        width: "100px",
+        height: "10px",
+        background: "black",
+        position: "absolute",
+        top: "150px",
+        right: "10px",
+        rotate: "25deg",
+        transformOrigin: "right bottom"
+    }}
+    />)
 
-    </div>)
 const leftFoot = (
-    <div style={{width: "150px"}}>
+    <div style={{
+        width: "100px",
+        height: "11px",
+        background: "black",
+        position: "absolute",
+        top: "210px",
+        right: 0,
+        rotate: "-35deg",
+        transformOrigin: "right bottom"
+    }}
+    />)
 
-    </div>)
+
 const rightFoot = (
-    <div>
+    <div style={{
+        width: "100px",
+        height: "10px",
+        background: "black",
+        position: "absolute",
+        top: "210px",
+        right: "-90px",
+        rotate: "30deg",
+        transformOrigin: "left bottom"
+    }}
+    />)
 
-    </div>)
 
 const bodyParts = [head, body, rightArm, leftArm, leftFoot, rightFoot]
 
@@ -33,34 +87,42 @@ type ManProps = {
 const Man = ({numberOfMistakes}: ManProps) => {
     return (
         <div style={{position: 'relative'}}>
-            {bodyParts.slice(0, numberOfMistakes)}
-            <div style={{
-                height: '70px',
-                width: '15px',
-                background: 'black',
-                position: "absolute",
-                top: 0,
-                right: 0
-            }}/>
-            <div style={{
-                height: '70px',
-                width: '15px',
-                background: 'black',
-                marginLeft: '150px'
-            }}/>
+            {bodyParts.slice(0, numberOfMistakes).map((part, index) => (
+                <div key={index}>{part}</div>
+            ))}
+            <div
+                style={{
+                    height: '50px',
+                    width: '10px',
+                    background: 'black',
+                    position: "absolute",
+                    top: 0,
+                    right: 0
+                }}/>
+            <div
+                style={{
+                    height: '10px',
+                    width: '200px',
+                    background: 'black',
+                    marginLeft: '120px'
+                }}/>
 
-            <div style={{
-                height: '450px',
-                width: '15px',
-                background: 'black',
-                marginLeft: '120px'
-            }}/>
+            <div
+                style={{
+                    height: '400px',
+                    width: '10px',
+                    background: 'black',
+                    marginLeft: '120px'
+                }}/>
 
-            <div style={{
-                height: '15px',
-                width: '250px',
-                background: 'black',
-            }}/>
+            <div
+                style={{
+                    height: '50px',
+                    width: '250px',
+                    background: 'black',
+                }}>
+
+            </div>
 
         </div>
     );
