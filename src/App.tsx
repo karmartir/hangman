@@ -63,13 +63,16 @@ function App() {
                 wordToGuess={wordToGuess}
                 guessedLetters={guessedLetters}
             />
+            <div
+                style={{alignSelf: 'stretch'}}>
+                <Keyboard
 
-            <Keyboard
-                disabled={isWinner || isLoser}
-                activeLetters={guessedLetters.filter(letter => wordToGuess.includes(letter))}
-                inactiveLetters={incorrectLetters}
-                addGuessedLetters={addGuessedLetters}
-            />
+                    disabled={isWinner || isLoser}
+                    activeLetters={guessedLetters.filter(letter => wordToGuess.includes(letter))}
+                    inactiveLetters={incorrectLetters}
+                    addGuessedLetters={addGuessedLetters}
+                />
+            </div>
         </div>
     );
 }

@@ -15,7 +15,7 @@ type KeyboardProps = {
 
 function Keyboard(
     {
-        /*disabled = false,*/
+        disabled = false,
         activeLetters,
         inactiveLetters,
         addGuessedLetters
@@ -25,9 +25,11 @@ function Keyboard(
     return <div
         style={{
             display: "grid",
-            justifyContent: 'space-evenly',
-            gridTemplateColumns: "repeat(9, 1fr)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(50px, 1fr))",
             gap: ".5rem",
+            marginInlineStart: "15px",
+            marginInlineEnd: "15px",
+
         }}
     >
         {KEYS.map((key, index) => {
@@ -40,7 +42,7 @@ function Keyboard(
                     onClick={() => addGuessedLetters(key)}
                     className={`${styles.btn} ${isActive ? styles.active : ''}
                     ${isInactive ? styles.inactive : ''}`}
-                    disabled={isActive || isInactive}
+                    disabled={isActive || isInactive || disabled}
                 >
                     {key}
                 </button>
